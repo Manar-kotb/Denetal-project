@@ -1,0 +1,203 @@
+
+   <style>
+
+  body {
+    font-family: Arial;
+    color: white;
+     background : url("manora.jpg") ;
+background-size  :cover ;
+
+}
+
+.box
+  { 
+        position:absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50% , -20%);
+        width: 400px;
+        padding: 40px;
+        background: rgba(0,4,38,0.8);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+        border-radius: 10px;
+   }
+
+.box h2
+   {
+        font-size :30px;
+        margin: 0 0 30px; 
+        padding: 0;
+        color: #fff;
+        text-align: center;
+    }
+
+.box .inputBox
+   {
+      position: relative;
+   }
+
+.box .inputBox input
+   {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: #fff; 
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid #fff;
+      outline: none;
+      background: transparent;
+    }
+      
+.box .inputBox label
+    {
+       position: absolute;
+       top: 0;
+       left: 0;
+       padding: 10px 0;
+       font-size: 16px;
+       color: #fff;
+       pointer-events: none;
+       transition: .5s;
+    }
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label
+    {
+       top: -18px;
+       left: 0;
+       color: #03a9f4;
+       font-size: 12px;
+    }
+
+.box input[type="submit"]
+    {
+       background: transparent;
+       border: none;
+       outline: none;
+       color: #fff;
+       background: #03a9f4;
+       padding: 10px 20px;
+       cursor: pointer;
+       border-radius: 5px;
+    }
+ 
+</style>
+
+
+<html>
+
+
+<head>
+    <title> </title>
+<link href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+
+    <div class="box">
+            <h2>Sign Up</h2>
+            <form onsubmit="return validate_register();" action="manar1.html" method="post">
+                 <div class="inputBox">
+                     <input type="text" name="" required="" id="name"/>
+                     <label>UserName :</label>
+                     <span id="username" style="color:red;"></span><br>
+                     
+                     
+                 </div>
+                 <div class="inputBox">
+                     <input type="password" name="" required="" id="pass-res"/>
+                     <label>Password :</label>
+                     <span id="pas" style="color:red;"></span><br>
+                 </div>
+                 <div class="inputBox">
+                     <input type="password" name="" required="" id="pass-conf"/>
+                     <label>Confirm Password :</label>
+                     <span id="con-pas" style="color:red;"></span><br>
+                 </div>
+                 <div class="inputBox">
+                     <input type="email" name="" required="" id="email"/>
+                     <label>E-Mail :</label>
+                     
+                 </div>
+                 
+ <div class="inputBox">
+                     <input type="text" name="" required="" id="phonenum"/>
+                     <label>Phone Number :</label>
+                     <span id="num" style="color:red;"></span><br>
+                 </div>
+ <div class="inputBox">
+<p>Choose Your Country : </p>
+<select>
+<option selected = "selected">COUNTRY</option>
+<option>EGYPT</option>
+<option>ENGLAND</option>
+<option>ITALY</option>
+<option>FRANCE</option>
+</select> <br> <br>
+                 </div>
+
+<div>
+<p> Gender : </p>
+<input type="radio" name="reading" value=0 /> Male
+<input type="radio" name="reading" value=1 checked="checked" /> Female
+<br> <br>
+</div>
+                <input type="submit" name="" value="Sign Up" formaction="manar1.html"> <br>
+             <p > Already have an account..<a href = "dental.html"> <Font COLOR="#ff3300"> LOGIN</></a> </p>
+
+</form>
+        </div>
+    <br >
+    <br >
+         
+
+      <script type="text/javascript">
+
+           function validate_register()
+               {
+                  var username=document.getElementById("name").value;
+                  var password = document.getElementById("pass-res").value;
+                  var confirmpassword = document.getElementById("pass-conf").value;
+                  var email=document.getElementById("email").value;
+                  var phonenum = document.getElementById("phonenum").value;
+
+                    if ((username.length<6 ||username.length>25))
+                   {
+				      
+                    alert("Name must be Between 6 and 25")
+                      return false;
+                   }
+                  else if ((password.length<5)||(password.length>20))
+                    { 
+                       document.getElementById('pas').innerHTML = "**Please fill Password Between 5 and 20.."
+                       
+                       return false; 
+                    }
+                  else if(confirmpassword != password)
+                    { 
+                       document.getElementById('con-pas').innerHTML = "**Passwords are not Matching.."
+                     
+                       return false; 
+                    }
+                  else if (phonenum.length!=11)
+                    {
+                       document.getElementById('num').innerHTML = "**Phone Number must be 11 digits.."
+                      
+                       return false; 
+                    }
+else if (isNaN(phonenum)){
+document.getElementById('num').innerHTML = "**Phone Number mustn't be include chara.."
+                      
+                       return false; 
+}
+else{
+ return true;
+}
+}
+</script>
+    </body>
+    </html>
+

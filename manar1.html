@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+  
+ 
+   
+    <head>
+        <title> Dental Clinics </title>
+     <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #slider {
+               overflow: hidden;
+}
+            #slider figure {
+                 position: relative;
+                 width:1000%;
+                 margin:0;
+                 left:0;
+                 animation: 30s slider infinite;
+}
+            #slider figure img {
+                 width: 10%;
+                 float: left;
+}
+            @keyframes slider {
+                 10%  {
+                   left: 0;
+                }
+                  15% {
+                  left: 0;
+                }
+                  20% {
+                   left: -100%;
+                } 
+                
+                  25% {
+                    left: -100%;
+                }
+                  30% {
+                    left: -200%;
+                }
+                  35% {
+                     left: -200%;
+                }
+                  40% {
+                     left: -300%;
+                }
+                
+                  45% {
+                     left: -300%;
+                }
+   50% {
+                     left: -400%;
+                }
+                
+                  55% {
+                     left: -400%;
+                }
+   60% {
+                     left: -500%;
+                }
+                
+                  65% {
+                     left: -500%;
+                }
+   70% {
+                     left: -600%;
+                }
+                
+                  75% {
+                     left: -600%;
+                }
+   80% {
+                     left: -700%;
+                }
+                
+                  85% {
+                     left: -700%;
+                }
+   90% {
+                     left: -800%;
+                }
+                
+                  95% {
+                     left: -800%;
+                }
+}
+
+
+
+
+  
+      body {
+    
+    background-size: cover;
+    font-family: Arial;
+    color: white;
+
+
+background-position: right top;
+}
+ul {
+    margin: 0px;
+    padding: 0px;
+    life-style: none;
+}
+
+ul li {
+    float: left;
+    width: 150px;
+    height: 40px;
+   background: black;
+    opacity: .8;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    
+}
+ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+ul li a:hover{
+    background-color: #4682b4;
+}
+ul li ul li {
+    display: none;
+}
+ul li:hover ul li {
+    display: block;
+}
+.m20 , .m2 , .m3 , .m4 , .m8 ,.m7,.m6,.m5,.m10,.m11,.m12,.m13
+,.m15,.m17,.m14,.m16,.m18,.m60{
+width : 100px;
+height : 700px;
+
+}
+ li
+ {
+     cursor: pointer;
+ }
+
+ 
+        </style>
+            
+  
+<ul>
+        <li><a>Home </a></li>
+
+    
+        
+        <li><a>Doctor's Name </a>
+            <ul id="list">
+                <li> <a href="m2.html">Sara Ali</a></li>
+                <li><a href="m3.html">Ahmed Saber</a></li>
+
+
+            </ul>
+         </li>
+
+<li><a>Options </a>
+   <ul>
+           
+            <li><a href="video2.html">Dental Implant</a></li>
+   <li><a href="video.html">Orthodontics</a></li>
+           </ul>
+         </li>
+
+
+  <li><a>Conect Us</a>
+<ul>
+
+<li><a> 01156835497 </a> </li>
+</ul>
+</li> 
+
+         <li><a >Team </a>
+        
+           <ul>
+            <li><a href="m1.html">Our Team</a></li>
+            <li><a>Resources</a></li>
+           </ul>
+         </li>
+ <li><a href="dental.html" >Logout </a></li>
+
+    </ul>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+<input type="text" class="admin" id="txt"> <br>
+<input type="button" value="Add" class="add" onclick="addli()">
+<input type="button" value="Edit" class="edit" onclick="editli()">
+<input type="button" value="Delete" class="delete" onclick="deleteli()">
+
+</head>
+<script type="text/javascript">
+
+  var inputText = document.getElementById("txt"),
+                 inner_lists = document.querySelectorAll("#list li"),
+                 array = [], index;
+         
+       
+             for(var i = 0; i < inner_lists.length; i++){
+                 array.push(inner_lists[i].innerHTML);
+             }
+             
+       
+             for(var i = 0; i < inner_lists.length; i++){
+                 
+                 inner_lists[i].onclick = function(){
+                     index= array.indexOf(this.innerHTML);
+                     console.log(this.innerHTML + " INDEX = " + index);
+                    
+                     inputText.value = this.innerHTML;
+                 };
+                 
+             }
+            
+            function refreshArray()
+            {
+             
+                array.length = 0;
+               inner_lists = document.querySelectorAll("#list li");
+          
+                for(var i = 0; i < inner_lists.length; i++){
+                 array.push(inner_lists[i].innerHTML);
+               }
+            }
+            function addli(){
+                
+             var main_list= document.getElementById("list"),
+                    new_textbox = document.createTextNode(inputText.value),
+                    added_list = document.createElement("LI");
+                    
+                    added_list.appendChild(new_textbox);
+                    main_list.appendChild(added_list);
+                    
+                    refreshArray();
+                       
+                    added_list.onclick = function(){
+                     index = array.indexOf(added_list.innerHTML);
+                     console.log(added_list.innerHTML + " INDEX = " + index);
+                    
+                     inputText.value = added_list.innerHTML;
+                 };
+                    
+             }
+             
+             function editli(){
+               
+                 inner_lists[index].innerHTML = inputText.value;
+                 refreshArray();
+              }
+              
+              function deleteli(){
+                  
+                      refreshArray();
+                      if(inner_lists.length > 0){
+                          inner_lists[index].parentNode.removeChild(inner_lists[index]);
+                          inputText.value = "";
+                      }
+              }
+
+</script>
+<br>
+<br>
+<br>
+
+<body>
+
+     <div id="slider">
+         <figure>
+
+             <img class="m20" src="m20.jpg">
+             <img class="m60" src="m60.jpg">
+             <img class="m3" src="m3.jpg">
+             <img class="m4" src="m4.jpg">
+             <img class="m15" src="m15.jpg">
+             <img class="m17" src="m17.jpg">
+             <img class="m7" src="m7.jpg">
+             <img class="m14" src="m14.jpg">
+             <img class="m16" src="m16.jpg">
+             <img class="m13" src="m13.jpg">
+
+         </figure>
+     </div>
+    </body>
+
+</html>
